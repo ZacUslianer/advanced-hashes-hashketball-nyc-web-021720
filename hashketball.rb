@@ -143,6 +143,7 @@ game_hash.each do |place, team|
         if player[:player_name] == players_name
           return player[:shoe]
           end
+<<<<<<< HEAD
         end
       end
     end
@@ -190,10 +191,13 @@ def player_stats(players_name)
             k == :player_name
             end
           end
+=======
+>>>>>>> 95fb60c7098de6653929450419526578f3161064
         end
       end
     end
   end
+<<<<<<< HEAD
 new_hash
 end
 
@@ -207,10 +211,38 @@ def big_shoe_rebounds
       else
         if player[:shoe] > big_shoe_player[:shoe]
           big_shoe_player = player
+=======
+end
+
+def team_colors(team_name)
+game_hash.each do |place, team|
+ if team[:team_name] == team_name
+ return team[:colors]
+    end
+  end
+end
+
+def team_names
+game_hash.map do |place, team|
+ team[:team_name]
+ end
+end
+
+def player_numbers(team_name)
+nums = []
+game_hash.each do |place, team|
+  if team[:team_name] == team_name
+    team.each do |attributes, data|
+      if attributes == :players
+        data.each do |player|
+         nums << player[:number]
+          end
+>>>>>>> 95fb60c7098de6653929450419526578f3161064
         end
       end
     end
   end
+<<<<<<< HEAD
   big_shoe_player[:rebounds]
 end
 
@@ -223,9 +255,39 @@ def most_points_scored
       else 
         if player[:points] > high_score_player[:points]
           high_score_player = player
+=======
+  nums
+end
+
+def player_stats(players_name)
+  new_hash = {}
+  game_hash.each do |place, team|
+    team.each do |attributes, data|
+      if attributes == :players 
+        data.each do |player|
+          if player[:player_name] == players_name
+          new_hash = player.delete_if do |k, v|
+            k == :player_name
+            end
+          end
+>>>>>>> 95fb60c7098de6653929450419526578f3161064
         end
       end
     end
   end
+<<<<<<< HEAD
   high_score_player[:player_name]
 end
+=======
+new_hash
+end
+
+
+def big_shoe_rebounds
+  game_hash.each do |place, team|
+    team.each do |player, attributes|
+      binding.pry
+    end
+  end
+end
+>>>>>>> 95fb60c7098de6653929450419526578f3161064
